@@ -9,3 +9,6 @@ class DomingoTest(TestCase):
 
    def test_texto(self):
       self.assertContains(self.resp, 'domingo')
+
+def test_template_domingo(self):
+    self.assertTemplateUsed(self.resp, 'domingo.html')

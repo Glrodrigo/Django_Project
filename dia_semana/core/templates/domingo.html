@@ -5,6 +5,10 @@
       <title>Fim de semana</title>
    </head>
    <body>
-      <h1>Infelizmente ainda não é fim de semana</h1>
+        {% if domingo %}
+            <h1>É domingo</h1>
+        {% else %}
+            <h1>Não é domingo</h1>
+        {% endif %}
    </body>
 </html>
