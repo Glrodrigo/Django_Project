@@ -1,4 +1,6 @@
 from django.test import TestCase
+from core.models import Dia_semanaModel
+from datetime import datetime
 
 class DomingoTest(TestCase):
    def setUp(self):
@@ -12,3 +14,29 @@ class DomingoTest(TestCase):
 
 def test_template_domingo(self):
     self.assertTemplateUsed(self.resp, 'domingo.html')
+
+class DomingoModelTest(TestCase):
+    def setUp(self):
+        self.dia_semana = 'Sabado'
+        self.month      = 12
+        self.day        = 25
+        self.cadastre   = Dia_semanaModel(
+            name  = self.dia_semana,
+            day   = self.day,
+            month = self.month,
+        )
+        self.cadastre.save()
+
+    def test_created(self):
+        self.assertTrue(Dia_semanaModel.objects.exists())
+
+    def test_modified_in(self):
+        self.assertIsInstance(self.cadastre.modified_in, datetime)
+
+    def test_name_dia_semana(self):
+        name = self.cadastre.__dict__.get('name', '')
+        self.assertEqual(name, self.dia_semana)
+
+    def test_day(self):
+        day = self.cadastre.__dict__.get('day', '')
+        self.assertEqual(day, self.day)
