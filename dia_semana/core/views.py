@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def domingo(request):
-   return HttpResponse("Não é domingo...")
+   return render(request, 'domingo.html')
