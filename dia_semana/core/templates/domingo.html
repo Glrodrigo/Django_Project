@@ -6,9 +6,10 @@
    </head>
    <body>
         {% if domingo %}
-            <h1>É domingo</h1>
+            <h1>Hoje é dia:</h1>
+            {{ name }}
         {% else %}
-            <h1>Não é domingo</h1>
+            <h1>Lamento, hoje não é domingo</h1>
         {% endif %}
    </body>
 </html>

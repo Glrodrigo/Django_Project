@@ -10,4 +10,4 @@ class Dia_semanaModel(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.name + '=> ' + str(self.day)
